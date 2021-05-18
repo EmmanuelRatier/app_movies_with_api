@@ -5,7 +5,7 @@ const Movie = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/discover/movie/?&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`)
+    fetch(`http://api.themoviedb.org/3/discover/movie/?&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.results[0].id)
