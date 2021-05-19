@@ -1,10 +1,10 @@
 
-import Movie from './components/Movie'
+import Page from './components/Page'
 
 function App() {
   return (
     <>
-      <Movie />
+      <Page />
     </>
   );
 }
