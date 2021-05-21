@@ -3,7 +3,6 @@
 const InputGenre = ({ genre, setIdGenre }) => {
   const handleChange = (e) => {
     setIdGenre(e.target.value)
-    console.log(e.target.value)
   }
   return (
     <>
