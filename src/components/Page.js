@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import SingleContent from './SingleContent';
 import InputDateYear from './InputDateYear';
-import InputGenre from './InputGenre';
+//import InputGenre from './InputGenre';
 
 const Page = () => {
   const [data, setData] = useState([]);
-  const [genre, setGenre] = useState([])
+  //const [genre, setGenre] = useState([])
   const [date, setDate] = useState("")
 
   useEffect(() => {
@@ -19,20 +19,20 @@ const Page = () => {
 
   }, [date])
 
-  useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`)
-      .then((res) => res.json())
-      .then((genre) => {
-        setGenre(genre.genres)
-        console.log(genre)
-      })
-  }, [])
+  // useEffect(() => {
+  //   fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`)
+  //     .then((res) => res.json())
+  //     .then((genre) => {
+  //       setGenre(genre.genres)
+  //       console.log(genre)
+  //     })
+  // }, [])
 
 
   return (
     <>
       <div className="ctr">
-        <InputGenre genre={genre} setGenre={setGenre} />
+        {/* <InputGenre genre={genre} setGenre={setGenre} /> */}
         <InputDateYear setDate={setDate} />
       </div>
       <div className="container">
