@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import SingleContent from './SingleContent';
-import InputDateYear from './InputDateYear';
-import InputGenre from './InputGenre';
-import Pagination from './Pagination';
+import Navbar from './Navbar/Navbar'
+import { useContext } from 'react'
+import { MovieContext } from '../context/MovieContext'
+
 
 const Main = () => {
-  const [data, setData] = useState([]);
-  const [genre, setGenre] = useState([])
-  const [idGenre, setIdGenre] = useState("")
-  const [date, setDate] = useState("")
-  const [page, setPage] = useState(1)
+  const { setGenre, data, setData, idGenre, date, page } = useContext(MovieContext)
+  // const [data, setData] = useState([]);
+  // const [genre, setGenre] = useState([])
+  // const [idGenre, setIdGenre] = useState("")
+  // const [date, setDate] = useState("")
+  // const [page, setPage] = useState(1)
 
   // fetch movies
   useEffect(() => {
@@ -21,7 +23,7 @@ const Main = () => {
         console.log(data)
       })
 
-  }, [date, idGenre, page])
+  }, [date, idGenre, page, setData])
 
   // Fetch genre name and id in select option 
   useEffect(() => {
@@ -30,16 +32,12 @@ const Main = () => {
       .then((genre) => {
         setGenre(genre.genres)
       })
-  }, [])
+  }, [setGenre])
 
 
   return (
     <>
-      <div className="ctr">
-        <Pagination page={page} setPage={setPage} />
-        <InputGenre genre={genre} setIdGenre={setIdGenre} />
-        <InputDateYear setDate={setDate} />
-      </div>
+      <Navbar />
       <div className="container">
         {data && data.map(item => (
           <SingleContent

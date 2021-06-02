@@ -1,19 +1,20 @@
 //import React, { useState } from 'react';
+import { useContext } from 'react'
+import { MovieContext } from '../context/MovieContext'
 
-const InputGenre = ({ genre, setIdGenre }) => {
+const InputGenre = () => {
+  const { genre, setIdGenre } = useContext(MovieContext)
   const handleChange = (e) => {
     setIdGenre(e.target.value)
   }
   return (
     <>
-      <div>
-        <select onChange={handleChange}>
-          <option value="">Tous</option>
-          {genre && genre.map(item => (
-            <option key={item.id} value={item.id}>{item.name}</option>
-          ))}
-        </select>
-      </div>
+      <select onChange={handleChange}>
+        <option value="">Tous</option>
+        {genre && genre.map(item => (
+          <option key={item.id} value={item.id}>{item.name}</option>
+        ))}
+      </select>
     </>
   )
 }

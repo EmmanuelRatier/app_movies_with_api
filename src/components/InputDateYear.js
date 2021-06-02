@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
+import { useContext } from 'react'
+import { MovieContext } from '../context/MovieContext'
 
-const InputDateYear = ({ setDate }) => {
+const InputDateYear = () => {
+  const { setDate } = useContext(MovieContext)
   let [startDate, setStartDate] = useState(new Date());
 
   const handleDateChange = (e) => {
