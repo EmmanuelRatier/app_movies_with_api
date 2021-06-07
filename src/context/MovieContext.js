@@ -7,9 +7,10 @@ export const MovieContext = createContext()
 export const MovieContextProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [genre, setGenre] = useState([])
-  const [idGenre, setIdGenre] = useState("")
-  const [date, setDate] = useState("")
+  const [idGenre, setIdGenre] = useState('')
+  const [date, setDate] = useState('')
   const [page, setPage] = useState(1)
+  // const [idMovie, setIdMovie] = useState('')
 
   return (
     <MovieContext.Provider value={{

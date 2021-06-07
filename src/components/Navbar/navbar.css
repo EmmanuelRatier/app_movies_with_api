@@ -2,14 +2,18 @@
   margin:0;
   padding:0;
 }
+header {
+  padding: 10px;
+}
 nav {
   height: 50px;
   background:linear-gradient(45deg, rgb(156,14,156), midnightblue);
-  display: inline;
+  position:sticky;
+  top:0;
 }
 .liste {
   list-style-type: none;
-  background:linear-gradient(45deg, rgb(156,14,156), midnightblue);
+  background:linear-gradient(45deg, #EAEFD3, #3B3659);
   height:100%;
   display: flex;
   justify-content:center;
@@ -40,6 +44,7 @@ nav {
   border-bottom:1px solid #fff;
   line-height:50px;
   cursor: pointer;
+  text-align: center;
 }
 .btn {
   display: block;

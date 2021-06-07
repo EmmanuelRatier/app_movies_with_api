@@ -1,0 +1,10 @@
+footer {
+  /* background:linear-gradient(45deg, rgb(156,14,156), midnightblue); */
+  background-color: #EAEFD3;
+  height: 30px;
+}
+footer div p {
+  text-align: center;
+  color: #27233A;
+  font-weight: bold;
+}
