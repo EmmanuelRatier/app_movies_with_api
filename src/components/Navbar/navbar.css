@@ -7,13 +7,12 @@ header {
 }
 nav {
   height: 50px;
-  background:linear-gradient(45deg, rgb(156,14,156), midnightblue);
   position:sticky;
   top:0;
 }
 .liste {
   list-style-type: none;
-  background:linear-gradient(45deg, #EAEFD3, #3B3659);
+  background:#D7C9AA;
   height:100%;
   display: flex;
   justify-content:center;
