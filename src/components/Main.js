@@ -8,7 +8,8 @@ import Pagination from '../components/Pagination';
 
 
 const Main = () => {
-  const { setGenre, data, setData, idGenre, date, page, setPage, setNewId } = useContext(MovieContext)
+  const { setGenre, data, setData, idGenre, date, page, setPage } = useContext(MovieContext)
+
   // fetch movies
   useEffect(() => {
     fetch(`http://api.themoviedb.org/3/discover/movie/?&api_key=${process.env.REACT_APP_MOVIE_API_KEY}&page=${page}&sort_by=popularity.desc&year=${date}&with_genres=${idGenre}`)
@@ -18,7 +19,7 @@ const Main = () => {
         console.log(data)
       })
 
-  }, [date, idGenre, page, setData, setNewId])
+  }, [date, idGenre, page, setData])
 
   // Fetch genre name and id in select option 
   useEffect(() => {

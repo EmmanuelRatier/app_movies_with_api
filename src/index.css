@@ -14,9 +14,63 @@ code {
     monospace;
 }
 
+/* NAVBAR STYLE  */
+header {
+  padding-left: 5px;
+}
+nav {
+  height: 50px;
+  position:sticky;
+  top:0;
+}
+.nav-ul {
+  list-style-type: none;
+  background:#D7C9AA;
+  height:100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  position: relative;
+}
+
+.items {
+  margin-right:10px;
+  color:#f1f1f1;
+  cursor: pointer;
+}
+.btn {
+  display:none
+}
+@media screen and (max-width:500px) {
+  .nav-ul {
+    flex-direction: column;
+    height: 200px;
+  }
+  .items:nth-child(1) {
+    border-top:1px solid #fff;
+    margin-top:50px
+  }
+  .items {
+  height:50px;
+  width:100%;
+  border-bottom:1px solid #fff;
+  line-height:50px;
+  cursor: pointer;
+  text-align: center;
+}
+.btn {
+  display: block;
+  position:absolute;
+  right:10px;
+  top:10px;
+  color:#fff;
+}
+
+}
+/* END NAVBAR STYLE */
 .container {
   display: grid;
-  grid-template-columns: repeat(5,auto);
+  grid-template-columns: repeat(4,auto);
   justify-items: center;
   grid-gap: 100px;
   margin-top: 25px;
@@ -61,7 +115,6 @@ ul li {
     display: flex;
 }
 .tasty {
-  color:green;
   position: absolute;
   background:#3B3659;
   width: 100px;
@@ -70,7 +123,6 @@ ul li {
   animation-fill-mode: forwards;
   overflow: hidden!important;
   cursor: initial;
-
 }
 .image-modal {
   grid-area:  a
@@ -92,7 +144,7 @@ ul li {
     top:0;
     left:0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position:fixed;
   }
 }
@@ -100,7 +152,7 @@ ul li {
   margin: auto;
   width: 1000px;
   margin-top: 150px;
-  background-color: #BEB8EB;
+  background-color: #D7C9AA;
   border-radius: 10px;
   padding: 50px;
   color:#3B3659;
@@ -109,12 +161,67 @@ ul li {
                        "a c";
   grid-gap: 30px;
 }
-@media screen and (max-width:500px) {
-  .container {
-  display: grid;
-  grid-template-columns: repeat(1,auto);
-  justify-items: center;
-  grid-gap: 30px;
-  margin-top: 25px;
+
+@media screen and (max-width:1000px) {
+    .container {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    justify-items: center;
+    grid-gap: 30px;
+    margin-top: 25px;
+  }
 }
+@media screen and (max-width:500px) {
+    .container {
+    display: grid;
+    grid-template-columns: repeat(1,auto);
+    justify-items: center;
+    grid-gap: 30px;
+    margin-top: 25px;
+  }
+  .modal {
+        margin: auto;
+    width: auto;
+    max-height: 100%;
+    background-color: #D7C9AA;
+    border-radius: 0;
+    padding: 50px;
+    color: #3B3659;
+    display: grid;
+    grid-template-areas:
+        "a"
+        "b"
+        "c";
+    grid-gap: 30px;
+    justify-content: center;
+    text-align: center;
+  }
+  .tasty {
+  position: fixed;
+  width: 100%;
+  background-color: #D7C9AA;
+  animation: test 0.8s ease-in;
+  animation-fill-mode: forwards;
+  height: 100%;
+    top: 0;
+  cursor: initial;
+  overflow-y: scroll!important;
+max-height: 100%;
+}
+  @keyframes test {
+0% {
+    left: 0;
+    opacity: 0;
+}
+100% {
+    left: 0;
+    opacity: 1;
+}
+}
+  .title-modal p {
+    margin: 0;
+  }
+  .title-modal p:last-child {
+        margin-bottom: 15px;
+  }
 }

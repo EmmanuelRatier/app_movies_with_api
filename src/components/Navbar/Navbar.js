@@ -1,4 +1,4 @@
-import './navbar.css'
+import '../../index.css'
 import InputDateYear from './../InputDateYear';
 import InputGenre from './../InputGenre';
 import { useContext, useEffect, useState } from 'react'
@@ -8,6 +8,8 @@ export default function Navbar() {
   const { genre, setIdGenre, setDate } = useContext(MovieContext)
   const [toggleMenu, setToogleMenu] = useState(false)
   const [largeur, setLargeur] = useState(window.innerWidth)
+
+
   const navTest = document.querySelector('.nav-test')
 
   const toggleNavSmallScreen = () => {
@@ -35,10 +37,12 @@ export default function Navbar() {
       </header>
       <nav className="nav-test">
         {(toggleMenu || largeur > 500) && (
-          <ul className="liste">
-            <li className="items"><InputGenre genre={genre} setIdGenre={setIdGenre} /></li>
-            <li className="items"><InputDateYear setDate={setDate} /></li>
-          </ul>
+          <>
+            <ul className='nav-ul'>
+              <li className="items"><InputGenre genre={genre} setIdGenre={setIdGenre} /></li>
+              <li className="items"><InputDateYear setDate={setDate} /></li>
+            </ul>
+          </>
         )}
         <button onClick={toggleNavSmallScreen} className="btn">BTN</button>
       </nav>

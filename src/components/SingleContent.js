@@ -7,7 +7,8 @@ const SingleContent = ({ id, poster, title }) => {
   //function for get the id of a single movie and fetch details.
   const handleClick = () => {
     setFetchDetailsOnClick(!fetchDetailsOnClick)
-    console.log(id)
+    console.log(fetchDetailsOnClick)
+    // console.log(id)
     if (!fetchDetailsOnClick) {
       return fetch(`http://api.themoviedb.org/3/movie/${id}?&api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=fr-FR`)
         .then((res) => res.json())
@@ -20,14 +21,18 @@ const SingleContent = ({ id, poster, title }) => {
     }
   }
   // console.log(dataMovie)
-  console.log(genreMovie)
+  // console.log(genreMovie)
   // condition for display div details (scrollbar)
   const elem = document.getElementById('myBody')
-  if (fetchDetailsOnClick) {
+
+  if (window.innerWidth < 500 && fetchDetailsOnClick) {
     elem.style.overflow = 'hidden'
+  } else if (fetchDetailsOnClick) {
+    elem.style.overflow = 'visible'
   } else {
     elem.style.overflow = 'visible'
   }
+  console.log(window.innerWidth)
 
   const IMG_API = `https://image.tmdb.org/t/p/w1280`
   return (
