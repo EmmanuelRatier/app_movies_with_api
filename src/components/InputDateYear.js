@@ -16,6 +16,7 @@ const InputDateYear = () => {
   return (
     <>
       <DatePicker
+        className="input-custom"
         selected={startDate}
         onChange={handleDateChange}
         showYearPicker

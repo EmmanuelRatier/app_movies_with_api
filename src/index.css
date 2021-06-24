@@ -1,22 +1,24 @@
+/* Variables */
+* {
+  --dark-purple: #27233a;
+  --light-beige: #D7C9AA;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Signika:wght@300&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #27233A;
-  color:#D7C9AA;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Signika', sans-serif;
+  background-color: var(--dark-purple);
+  color:var(--light-beige);
 }
 
 /* NAVBAR STYLE  */
 header {
   padding-left: 5px;
+}
+h1 {
+  font-family: 'Lobster', cursive;
+  letter-spacing: 2px;
 }
 nav {
   height: 50px;
@@ -25,7 +27,7 @@ nav {
 }
 .nav-ul {
   list-style-type: none;
-  background:#D7C9AA;
+  background:var(--light-beige);
   height:100%;
   display: flex;
   justify-content:center;
@@ -57,15 +59,88 @@ nav {
   line-height:50px;
   cursor: pointer;
   text-align: center;
+  }
+  .btn {
+    display: block;
+    position:absolute;
+    right:10px;
+    top:10px;
+    color:#fff;
+  }
 }
-.btn {
+.custom-select {
+  position: relative;
+}
+select, .input-custom {
+  box-shadow: 0 0px 10px var(--dark-purple);
+  padding: .4em 2em .4em .4em;
+  background: var(--dark-purple);
+  color: #e2d8c1;
+  border: 0;  
+}
+.custom-arrow{
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  right: 0;
   display: block;
-  position:absolute;
-  right:10px;
-  top:10px;
-  color:#fff;
+  background: #191625;
+  height: 100%;
+  width: 1.5rem;
 }
+.custom-arrow::before, 
+.custom-arrow::after {
+  --size-arrow: .4em;
 
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  transform:translate(-50%, -50%);
+}
+.custom-arrow::before {
+  border-left: var(--size-arrow) solid transparent;
+  border-right: var(--size-arrow) solid transparent;
+  border-bottom: var(--size-arrow) solid var(--light-beige);
+  top: 30%;
+}
+.custom-arrow::after {
+  border-left: var(--size-arrow) solid transparent;
+  border-right: var(--size-arrow) solid transparent;
+  border-top: var(--size-arrow) solid var(--light-beige);
+  top: 70%;
+}
+.input-custom:focus-visible{
+  outline: 0;
+}
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  color:var(--light-beige);
+  background:var(--dark-purple);
+}
+.react-datepicker__navigation--next {
+  right: 10px;
+  border-left-color:var(--light-beige)!important;
+}
+.react-datepicker__navigation--previous {
+    left: 10px;
+    border-right-color: var(--light-beige)!important;
+}
+.react-datepicker {
+  background-color: #D7C9AA!important;
+}
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover {
+    border-radius: 0.3rem;
+    background-color: var(--dark-purple)!important;
+    color: var(--light-beige)!important;
+}
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before {
+    visibility: hidden;
+}
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+    border-radius: 0.3rem;
+    background-color:  var(--dark-purple)!important;
+    color: var(--light-beige)!important;
 }
 /* END NAVBAR STYLE */
 .container {
@@ -88,13 +163,13 @@ ul li {
   list-style-type: none;
 }
 .affiche_movie {
-  border:2px solid #EAEFD3;
+  border:2px solid var(--light-beige);
   animation: slidein 0.5s ease-out normal backwards;
   transition: box-shadow .3s;
   cursor: pointer;
 }
 .affiche_movie:hover {
-  box-shadow: 0 0 10px#EAEFD3 ;
+  box-shadow: 0 0 10px var(--light-beige) ;
 }
 @keyframes slidein {
   from {
@@ -152,7 +227,7 @@ ul li {
   margin: auto;
   width: 1000px;
   margin-top: 150px;
-  background-color: #D7C9AA;
+  background-color: var(--light-beige);
   border-radius: 10px;
   padding: 50px;
   color:#3B3659;
@@ -172,6 +247,21 @@ ul li {
   }
 }
 @media screen and (max-width:500px) {
+  .custom-select {
+    width: 144.98px;
+    margin:0 auto;
+  }
+  .custom-arrow {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    right: 0;
+    display: block;
+    background: #191625;
+    height: 25px;
+    width: 1.5rem;
+    top: 26%;
+}
     .container {
     display: grid;
     grid-template-columns: repeat(1,auto);
@@ -183,7 +273,7 @@ ul li {
         margin: auto;
     width: auto;
     max-height: 100%;
-    background-color: #D7C9AA;
+    background-color: var(--light-beige);
     border-radius: 0;
     padding: 50px;
     color: #3B3659;
@@ -199,7 +289,7 @@ ul li {
   .tasty {
   position: fixed;
   width: 100%;
-  background-color: #D7C9AA;
+  background-color: var(--light-beige);
   animation: test 0.8s ease-in;
   animation-fill-mode: forwards;
   height: 100%;

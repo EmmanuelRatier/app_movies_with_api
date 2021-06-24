@@ -1,5 +1,4 @@
-footer {
-  /* background:linear-gradient(45deg, rgb(156,14,156), midnightblue); */
+/* footer {
   background-color: #EAEFD3;
   height: 30px;
 }
@@ -7,4 +6,23 @@ footer div p {
   text-align: center;
   color: #27233A;
   font-weight: bold;
+} */
+.scrollToTopBtn {
+  background-color: #14121f;;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  opacity: 0;
+  transition:.5s;
+}
+.showBtn {
+  opacity: 1;
+  transition: .5s;
 }

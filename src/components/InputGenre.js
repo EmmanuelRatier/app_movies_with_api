@@ -9,12 +9,15 @@ const InputGenre = () => {
   }
   return (
     <>
-      <select onChange={handleChange}>
-        <option value="">Tous</option>
-        {genre && genre.map(item => (
-          <option key={item.id} value={item.id}>{item.name}</option>
-        ))}
-      </select>
+      <div className="custom-select">
+        <select onChange={handleChange}>
+          <option value="">Tous</option>
+          {genre && genre.map(item => (
+            <option key={item.id} value={item.id}>{item.name}</option>
+          ))}
+        </select>
+        <span className="custom-arrow"></span>
+      </div>
     </>
   )
 }
