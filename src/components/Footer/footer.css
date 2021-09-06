@@ -1,12 +1,32 @@
-/* footer {
-  background-color: #EAEFD3;
-  height: 30px;
+ footer {
+  background-color: #3B3659;
+  line-height: 24px;
+  color: black;
+  bottom: 0;
+  width: 100%;
 }
-footer div p {
-  text-align: center;
-  color: #27233A;
-  font-weight: bold;
-} */
+footer .art {
+  background-color: #D7C9AA;
+  padding: 5px;
+  padding-top: 28px;
+  clip-path: polygon(0% 20%, 15% 0%, 100% 40%, 100% 100%, 0 100%)
+}
+footer .content {
+  max-width: 1080px;
+  margin:auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  grid-gap: 16px;
+}
+section h3 {
+  margin-top: -3px;
+}
+footer header {
+  font-size: 21px;
+  padding-block: 16px;
+}
+
 .scrollToTopBtn {
   background-color: #14121f;;
   border: none;
@@ -18,11 +38,24 @@ footer div p {
   width: 48px;
   position: fixed;
   right: 15px;
-  bottom: 20px;
-  opacity: 0;
+  bottom: 40px;
+  /* opacity: 0; */
   transition:.5s;
+  z-index: 100;
 }
 .showBtn {
   opacity: 1;
   transition: .5s;
 }
+
+@media all and (max-width:500px) {
+  footer .content {
+    max-width: 1080px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    grid-gap: 16px;
+  }
+} 

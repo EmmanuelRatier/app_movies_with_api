@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import SingleContent from './SingleContent';
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer/Footer'
+
 import { useContext } from 'react'
 import { MovieContext } from '../context/MovieContext'
-import Pagination from '../components/Pagination';
 
 
 const Main = () => {
-  const { setGenre, data, setData, idGenre, date, page, setPage } = useContext(MovieContext)
+  const { setGenre, data, setData, idGenre, date, page } = useContext(MovieContext)
 
   // fetch movies
   useEffect(() => {
@@ -16,7 +16,7 @@ const Main = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data.results)
-        console.log(data)
+        // console.log(data)
       })
 
   }, [date, idGenre, page, setData])
@@ -47,7 +47,6 @@ const Main = () => {
           }
         </div>
       </div>
-      <Pagination page={page} setPage={setPage} />
       <Footer />
     </>
   )

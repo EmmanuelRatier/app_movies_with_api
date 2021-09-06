@@ -1,32 +1,32 @@
 import './footer.css'
+import ScrollTop from '../ScrollTop';
 
 const Footer = () => {
-
-  const rootElement = document.documentElement
-  const scrollToTop = () => {
-    // scroll to top logic
-    rootElement.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    let buttonToTop = document.querySelector('.scrollToTopBtn')
-    //traitement le dom est accessible
-    window.addEventListener('scroll', () => {
-      console.log('scroll !')
-      if (window.scrollY > 150) {
-        buttonToTop.classList.add('showBtn')
-      }
-      else if (window.scrollY < 150) {
-        buttonToTop.classList.remove('showBtn')
-      }
-    })
-  });
   return (
     <>
-      <footer>
+      {/* <div>
         <button className='scrollToTopBtn' onClick={scrollToTop}>☝️</button>
+      </div> */}
+      <ScrollTop showBelow={50} />
+      <footer id="myFooter">
+        <div className="art">
+          <div className="content">
+            <section>
+              <h3>Movie App</h3>
+            </section>
+            {/* <section>
+              <div className="social">
+                <i>github <i class="fab fa-github"></i></i>
+              </div>
+            </section> */}
+            <section>
+              <div className="notice">
+                Créer avec ❤️ par
+                <strong> Emmanuel Ratier</strong>
+              </div>
+            </section>
+          </div>
+        </div>
       </footer>
     </>
   )

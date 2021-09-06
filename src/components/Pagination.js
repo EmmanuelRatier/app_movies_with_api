@@ -3,13 +3,39 @@ import { MovieContext } from '../context/MovieContext'
 
 const Pagination = () => {
   let { setPage, page } = useContext(MovieContext)
+  // const [isDisa, setIsDisa] = useState(true)
 
+  //  buggg a revoir 
+  // function pagePrev() {
+  //   setPage(page -= 1)
+  //   if (page === 1) {
+  //     setIsDisa(isDisa)
+  //   } else {
+  //     setIsDisa(!isDisa)
+  //   }
+  // }
+  // function pageNext() {
+  //   setPage(page += 1)
+  //   if (page > 1) {
+  //     setIsDisa(!isDisa)
+  //   }
+  // }
+  // oui le bug
   return (
     <>
-      <div className="flex">
-        <div>< button onClick={() => { setPage(page -= 1) }} style={{ visibility: page === 1 ? 'hidden' : 'visible' }}>Précédent</button></div>
-        <div><button onClick={() => { setPage(page += 1) }} style={{ visibility: page === 500 ? 'hidden' : 'visible' }}>Suivant</button></div>
-        <div>page:{page}</div>
+      <div className="btn-wrap">
+        <div><button
+          id="btnPrev"
+          // className={isDisa ? 'disa' : 'ena'}
+          onClick={() => { setPage(page -= 1) }}
+          disabled={page === 1 || page === 500}
+          style={{ textDecoration: page === 1 ? 'line-through' : 'none' }}
+        >
+          Précédent
+        </button>
+        </div>
+        <div><button id="btnNext" onClick={() => { setPage(page += 1) }}>Suivant</button></div>
+        <p>page:{page}</p>
       </div>
     </>
   )

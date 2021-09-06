@@ -1,8 +1,7 @@
 /* Variables */
-* {
+:root {
   --dark-purple: #27233a;
   --light-beige: #D7C9AA;
-
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Signika:wght@300&display=swap');
 body {
@@ -12,6 +11,26 @@ body {
   color:var(--light-beige);
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 /* NAVBAR STYLE  */
 header {
   padding-left: 5px;
@@ -150,6 +169,7 @@ select, .input-custom {
   grid-gap: 100px;
   margin-top: 25px;
   justify-content: center;
+  margin-bottom: 70px;
 }
 
 .ctr {
@@ -182,13 +202,17 @@ ul li {
     transform: scale(1);
   }
 }
+
 .img_poster {
   width: 200px;
   max-width: 100%;
 }
-.flex {
-    display: flex;
+.img_poster_modal {
+  width: 210px;
+  max-width: 100%;
 }
+
+/* MODAL STYLE */
 .tasty {
   position: absolute;
   background:#3B3659;
@@ -200,13 +224,26 @@ ul li {
   cursor: initial;
 }
 .image-modal {
-  grid-area:  a
+  grid-area:  a;
+  justify-self: center;
+  padding: 20px 0 0 20px;
 }
 .title-modal {
-  grid-area:  b
+  grid-area:  b;
+  text-align: initial;
+  padding: 0 20px 0 20px;
 }
-.synopsis-modal {
-  grid-area:  c
+.casts {
+  grid-area:  c;
+  display:flex;
+  overflow: overlay;
+  width: 90%;
+  margin: auto;
+}
+.role_txt {
+  grid-area: d;
+  margin-bottom: -20px;
+  margin:margin-inline
 }
 @keyframes widthTransition {
   0% {
@@ -226,25 +263,118 @@ ul li {
 .modal {
   margin: auto;
   width: 1000px;
-  margin-top: 150px;
+  margin-top: 9vh;
   background-color: var(--light-beige);
   border-radius: 10px;
   padding: 50px;
   color:#3B3659;
     display: grid;
-  grid-template-areas: "a b"
-                       "a c";
+  grid-template-areas: "a b b b"
+                       "d b b b"
+                       "c c c c";
   grid-gap: 30px;
+
+}
+.space-genre {
+  margin-right: 5px;
+}
+/* END MODAL STYLE */
+
+/* Cast part in modal */
+.img_casts {
+  width: 110px;
+  height: 100%;
+}
+ol li.card {
+  margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 4px;
+    border: 1px solid #9a9696e1;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    
+}
+.name_cast {
+  height: 35px;
+  text-align: center;
+  margin: 0;
+  line-height: 20px;
+}
+/* End Cast part in modal */
+.page {
+      width: 200px;
+    /* background: #D7C9AA; */
+    /* bottom: 25px; */
+    position: relative;
+    color:black
+}
+.btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    align-items: center;
+}
+.btn-wrap div {
+  margin-right: 10px;
+}
+#btnNext, #btnPrev {
+      visibility: visible;
+    background-color: var(--dark-purple);
+    box-shadow: 0 0px 10px var(--dark-purple);
+    color: var(--light-beige);
+    border:none;
+    padding: .4em 2em .4em;
+    border-radius: 3px;
 }
 
-@media screen and (max-width:1000px) {
+.disa {
+  background-color: red!important;
+}
+.ena {
+  background-color: green!important;
+} 
+@media screen and (max-width:1400px) {
     .container {
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(4,auto);
     justify-items: center;
     grid-gap: 30px;
     margin-top: 25px;
   }
+  .modal {
+        margin: auto;
+    width: 100%;
+    background-color: var(--light-beige);
+    border-radius: 0;
+    padding: 5px;
+    color: #3B3659;
+    display: grid;
+    grid-template-areas:
+        "a b b b"
+        "d b b b"
+        "c c c c";
+    grid-gap:5px;
+    justify-content: center;
+    text-align: center;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 100;
+  }
+  .img_casts {
+  width: 100px;
+  height: 100%;
+}
+.name_cast {
+margin: 5px;
+}
+  /* footer {
+   z-index: 1;
+   position: inherit!important;
+  } */
 }
 @media screen and (max-width:500px) {
   .custom-select {
